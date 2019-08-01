@@ -58,10 +58,10 @@ module.exports = createReactClass({
         fullHeight: PropTypes.bool,
     },
 
-    defaultProps: {
+    getDefaultProps: () => ({
         showApps: true,
         hideAppsDrawer: false,
-    },
+    }),
 
     getInitialState: function() {
         return { counters: this._computeCounters() };

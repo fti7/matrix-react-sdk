@@ -43,10 +43,10 @@ module.exports = createReactClass({
         hide: PropTypes.bool, // If rendered, should apps drawer be visible
     },
 
-    defaultProps: {
+    getDefaultProps: () => ({
         showApps: true,
         hide: false,
-    },
+    }),
 
     getInitialState: function() {
         return {
