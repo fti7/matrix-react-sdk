@@ -27,6 +27,7 @@ const dis = require('../../dispatcher');
 
 import { linkifyAndSanitizeHtml } from '../../HtmlUtils';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import Promise from 'bluebird';
 import { _t } from '../../languageHandler';
 import { instanceForInstanceId, protocolNameForInstanceId } from '../../utils/DirectoryUtils';
@@ -39,7 +40,7 @@ function track(action) {
     Analytics.trackEvent('RoomDirectory', action);
 }
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'RoomDirectory',
 
     propTypes: {

@@ -16,12 +16,13 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import MatrixClientPeg from '../../../MatrixClientPeg';
 import Modal from '../../../Modal';
 import { _t } from '../../../languageHandler';
 
-export default React.createClass({
+export default createReactClass({
     displayName: 'RoomUpgradeDialog',
 
     propTypes: {

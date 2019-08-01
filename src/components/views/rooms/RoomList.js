@@ -22,6 +22,7 @@ import Timer from "../../../utils/Timer";
 const React = require("react");
 const ReactDOM = require("react-dom");
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
 const MatrixClientPeg = require("../../../MatrixClientPeg");
 const CallHandler = require('../../../CallHandler');
@@ -64,7 +65,7 @@ function phraseForSection(section) {
     }
 }
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'RoomList',
 
     propTypes: {

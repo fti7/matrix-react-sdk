@@ -16,12 +16,13 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import dis from '../../../dispatcher';
 import { _t } from '../../../languageHandler';
 import MatrixClientPeg from '../../../MatrixClientPeg';
 
-export default React.createClass({
+export default createReactClass({
     displayName: 'CreateGroupDialog',
     propTypes: {
         onFinished: PropTypes.func.isRequired,

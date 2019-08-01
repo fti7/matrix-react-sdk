@@ -18,6 +18,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import { _t } from '../../../languageHandler';
 import Modal from '../../../Modal';
@@ -62,7 +63,7 @@ const WarmFuzzy = function(props) {
  *
  * On success, `onFinished()` when finished
  */
-export default React.createClass({
+export default createReactClass({
     displayName: 'SetPasswordDialog',
     propTypes: {
         onFinished: PropTypes.func.isRequired,

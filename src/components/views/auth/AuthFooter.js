@@ -19,8 +19,9 @@ limitations under the License.
 
 import { _t } from '../../../languageHandler';
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'AuthFooter',
 
     render: function() {

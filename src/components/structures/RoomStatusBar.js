@@ -17,12 +17,11 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import Matrix from 'matrix-js-sdk';
 import { _t, _td } from '../../languageHandler';
 import sdk from '../../index';
-import WhoIsTyping from '../../WhoIsTyping';
 import MatrixClientPeg from '../../MatrixClientPeg';
-import MemberAvatar from '../views/avatars/MemberAvatar';
 import Resend from '../../Resend';
 import * as cryptodevices from '../../cryptodevices';
 import dis from '../../dispatcher';
@@ -39,7 +38,7 @@ function getUnsentMessages(room) {
     });
 }
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'RoomStatusBar',
 
     propTypes: {

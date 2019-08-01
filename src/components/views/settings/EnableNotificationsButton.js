@@ -18,9 +18,10 @@ limitations under the License.
 const React = require("react");
 const Notifier = require("../../../Notifier");
 const dis = require("../../../dispatcher");
+import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'EnableNotificationsButton',
 
     componentDidMount: function() {

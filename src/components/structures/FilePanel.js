@@ -16,6 +16,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import Matrix from 'matrix-js-sdk';
 import sdk from '../../index';
@@ -25,7 +26,7 @@ import { _t } from '../../languageHandler';
 /*
  * Component which shows the filtered file using a TimelinePanel
  */
-const FilePanel = React.createClass({
+const FilePanel = createReactClass({
     displayName: 'FilePanel',
 
     propTypes: {

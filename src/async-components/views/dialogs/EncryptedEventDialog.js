@@ -16,11 +16,12 @@ limitations under the License.
 
 const React = require("react");
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
 const sdk = require('../../../index');
 const MatrixClientPeg = require("../../../MatrixClientPeg");
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'EncryptedEventDialog',
 
     propTypes: {

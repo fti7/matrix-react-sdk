@@ -18,6 +18,7 @@ limitations under the License.
 import Promise from 'bluebird';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import MatrixClientPeg from '../../../MatrixClientPeg';
 import classnames from 'classnames';
@@ -34,7 +35,7 @@ const USERNAME_CHECK_DEBOUNCE_MS = 250;
  *
  * On success, `onFinished(true, newDisplayName)` is called.
  */
-export default React.createClass({
+export default createReactClass({
     displayName: 'SetMxIdDialog',
     propTypes: {
         onFinished: PropTypes.func.isRequired,

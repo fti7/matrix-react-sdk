@@ -21,6 +21,7 @@ import Matrix from 'matrix-js-sdk';
 import Promise from 'bluebird';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import { _t, _td } from '../../../languageHandler';
 import SdkConfig from '../../../SdkConfig';
@@ -40,7 +41,7 @@ const PHASE_REGISTRATION = 1;
 // Enable phases for registration
 const PHASES_ENABLED = true;
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'Registration',
 
     propTypes: {

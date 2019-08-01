@@ -16,9 +16,10 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 
-export default React.createClass({
+export default createReactClass({
     displayName: 'TextInputDialog',
     propTypes: {
         title: PropTypes.string,

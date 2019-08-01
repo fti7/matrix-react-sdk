@@ -16,6 +16,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import MatrixClientPeg from '../../../MatrixClientPeg';
 import { ContentRepo } from 'matrix-js-sdk';
 import { _t } from '../../../languageHandler';
@@ -23,7 +24,7 @@ import sdk from '../../../index';
 import Modal from '../../../Modal';
 import AccessibleButton from '../elements/AccessibleButton';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'RoomAvatarEvent',
 
     propTypes: {

@@ -19,6 +19,7 @@ import Field from "../elements/Field";
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 const MatrixClientPeg = require("../../../MatrixClientPeg");
 const Modal = require("../../../Modal");
 const sdk = require("../../../index");
@@ -30,7 +31,7 @@ import { _t } from '../../../languageHandler';
 
 import sessionStore from '../../../stores/SessionStore';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'ChangePassword',
 
     propTypes: {

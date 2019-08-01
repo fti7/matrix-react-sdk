@@ -15,14 +15,13 @@ limitations under the License.
 */
 const React = require('react');
 import PropTypes from 'prop-types';
-const MatrixClientPeg = require("../../../MatrixClientPeg");
-const Modal = require("../../../Modal");
+import createReactClass from 'create-react-class';
 const sdk = require("../../../index");
 import { _t } from '../../../languageHandler';
 
 // A list capable of displaying entities which conform to the SearchableEntity
 // interface which is an object containing getJsx(): Jsx and matches(query: string): boolean
-const SearchableEntityList = React.createClass({
+const SearchableEntityList = createReactClass({
     displayName: 'SearchableEntityList',
 
     propTypes: {

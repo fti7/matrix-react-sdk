@@ -18,6 +18,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import classNames from 'classnames';
 import { MatrixClient } from 'matrix-js-sdk';
 import { KeyCode } from '../../Keyboard';
@@ -30,7 +31,7 @@ import {_t} from "../../languageHandler";
 import Analytics from "../../Analytics";
 
 
-const LeftPanel = React.createClass({
+const LeftPanel = createReactClass({
     displayName: 'LeftPanel',
 
     // NB. If you add props, don't forget to update

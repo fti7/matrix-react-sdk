@@ -23,6 +23,7 @@ import ReplyThread from "../elements/ReplyThread";
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 const classNames = require("classnames");
 import { _t, _td } from '../../../languageHandler';
 const Modal = require('../../../Modal');
@@ -85,7 +86,7 @@ const MAX_READ_AVATARS = 5;
 // |    '--------------------------------------'              |
 // '----------------------------------------------------------'
 
-module.exports = withMatrixClient(React.createClass({
+module.exports = withMatrixClient(createReactClass({
     displayName: 'EventTile',
 
     propTypes: {

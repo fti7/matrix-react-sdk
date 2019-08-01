@@ -17,13 +17,12 @@ limitations under the License.
 'use strict';
 
 const React = require('react');
-const MatrixClientPeg = require('../../../MatrixClientPeg');
-const sdk = require('../../../index');
 const classNames = require('classnames');
 const AccessibleButton = require('../../../components/views/elements/AccessibleButton');
+import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'SearchBar',
 
     getInitialState: function() {

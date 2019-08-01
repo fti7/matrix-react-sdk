@@ -16,11 +16,9 @@ limitations under the License.
 import Promise from 'bluebird';
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
-const sdk = require('../../../index');
 const Tinter = require('../../../Tinter');
-const MatrixClientPeg = require("../../../MatrixClientPeg");
-const Modal = require("../../../Modal");
 
 import dis from '../../../dispatcher';
 import SettingsStore, {SettingLevel} from "../../../settings/SettingsStore";
@@ -43,7 +41,7 @@ const ROOM_COLORS = [
 // has a high possibility of being used in the nearish future.
 // Ref: https://github.com/vector-im/riot-web/issues/8421
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'ColorSettings',
 
     propTypes: {

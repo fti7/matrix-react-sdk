@@ -17,12 +17,13 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import SyntaxHighlight from '../views/elements/SyntaxHighlight';
 import {_t} from "../../languageHandler";
 import sdk from "../../index";
 
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'ViewSource',
 
     propTypes: {

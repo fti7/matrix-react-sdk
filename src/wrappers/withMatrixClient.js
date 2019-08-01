@@ -18,6 +18,7 @@ limitations under the License.
 import * as Matrix from 'matrix-js-sdk';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 /**
  * Wraps a react class, pulling the MatrixClient from the context and adding it
@@ -27,7 +28,7 @@ import PropTypes from 'prop-types';
  * mechanism in future.
  */
 export default function(WrappedComponent) {
-    return React.createClass({
+    return createReactClass({
         displayName: "withMatrixClient<" + WrappedComponent.displayName + ">",
 
         contextTypes: {

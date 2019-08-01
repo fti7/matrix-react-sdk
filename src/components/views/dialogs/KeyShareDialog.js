@@ -17,6 +17,7 @@ limitations under the License.
 import Modal from '../../../Modal';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 
 import { _t, _td } from '../../../languageHandler';
@@ -29,7 +30,7 @@ import { _t, _td } from '../../../languageHandler';
  * should not, and `undefined` if the dialog is cancelled. (In other words:
  * truthy: do the key share. falsy: don't share the keys).
  */
-export default React.createClass({
+export default createReactClass({
     propTypes: {
         matrixClient: PropTypes.object.isRequired,
         userId: PropTypes.string.isRequired,

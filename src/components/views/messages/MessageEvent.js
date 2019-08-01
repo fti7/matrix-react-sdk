@@ -18,9 +18,10 @@ limitations under the License.
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 const sdk = require('../../../index');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'MessageEvent',
 
     propTypes: {

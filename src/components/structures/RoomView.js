@@ -26,6 +26,7 @@ import shouldHideEvent from '../../shouldHideEvent';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import Promise from 'bluebird';
 import classNames from 'classnames';
 import {Room} from "matrix-js-sdk";
@@ -70,7 +71,7 @@ const RoomContext = PropTypes.shape({
     room: PropTypes.instanceOf(Room),
 });
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'RoomView',
     propTypes: {
         ConferenceHandler: PropTypes.any,

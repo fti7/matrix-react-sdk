@@ -18,10 +18,11 @@ limitations under the License.
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 const TextForEvent = require('../../../TextForEvent');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'TextualEvent',
 
     propTypes: {

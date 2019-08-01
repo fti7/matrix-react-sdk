@@ -16,6 +16,7 @@ limitations under the License.
 
 const React = require("react");
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import Promise from 'bluebird';
 import { KeyCode } from '../../Keyboard';
 import Timer from '../../utils/Timer';
@@ -84,7 +85,7 @@ if (DEBUG_SCROLL) {
  * offset as normal.
  */
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'ScrollPanel',
 
     propTypes: {

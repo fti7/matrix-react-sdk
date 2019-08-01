@@ -16,11 +16,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-'use strict';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import highlight from 'highlight.js';
 import * as HtmlUtils from '../../../HtmlUtils';
 import {formatDate} from '../../../DateUtils';
@@ -36,7 +35,7 @@ import ReplyThread from "../elements/ReplyThread";
 import {host as matrixtoHost} from '../../../matrix-to';
 import {pillifyLinks} from '../../../utils/pillify';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'TextualBody',
 
     propTypes: {

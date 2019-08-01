@@ -18,6 +18,7 @@ limitations under the License.
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 const sdk = require("../../../index");
 import { _t, _td } from '../../../languageHandler';
 import SettingsStore, {SettingLevel} from "../../../settings/SettingsStore";
@@ -25,7 +26,7 @@ import dis from "../../../dispatcher";
 import MatrixClientPeg from "../../../MatrixClientPeg";
 
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'UrlPreviewSettings',
 
     propTypes: {

@@ -18,6 +18,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { linkifyElement } from '../../../HtmlUtils';
 
 const sdk = require('../../../index');
@@ -25,7 +26,7 @@ const MatrixClientPeg = require('../../../MatrixClientPeg');
 const ImageUtils = require('../../../ImageUtils');
 const Modal = require('../../../Modal');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'LinkPreviewWidget',
 
     propTypes: {

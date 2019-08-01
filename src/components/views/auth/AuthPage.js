@@ -18,9 +18,10 @@ limitations under the License.
 'use strict';
 
 const React = require('react');
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'AuthPage',
 
     render: function() {

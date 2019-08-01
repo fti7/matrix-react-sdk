@@ -17,6 +17,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
 import sdk from '../../../index';
 import Modal from "../../../Modal";
@@ -37,7 +38,7 @@ const PHASE_EMAIL_SENT = 3;
 // User has clicked the link in email and completed reset
 const PHASE_DONE = 4;
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'ForgotPassword',
 
     propTypes: {

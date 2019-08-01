@@ -17,12 +17,13 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import dis from '../../../dispatcher';
 import { GroupMemberType } from '../../../groups';
 import withMatrixClient from '../../../wrappers/withMatrixClient';
 
-export default withMatrixClient(React.createClass({
+export default withMatrixClient(createReactClass({
     displayName: 'GroupMemberTile',
 
     propTypes: {

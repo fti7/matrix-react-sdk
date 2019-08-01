@@ -22,6 +22,7 @@ import SettingsStore from "../../settings/SettingsStore";
 const React = require('react');
 const ReactDOM = require("react-dom");
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import Promise from 'bluebird';
 
 const Matrix = require("matrix-js-sdk");
@@ -58,7 +59,7 @@ if (DEBUG) {
  *
  * Also responsible for handling and sending read receipts.
  */
-const TimelinePanel = React.createClass({
+const TimelinePanel = createReactClass({
     displayName: 'TimelinePanel',
 
     propTypes: {

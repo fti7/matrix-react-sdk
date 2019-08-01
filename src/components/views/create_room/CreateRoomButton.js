@@ -18,8 +18,10 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
-module.exports = React.createClass({
+
+module.exports = createReactClass({
     displayName: 'CreateRoomButton',
     propTypes: {
         onCreateRoom: PropTypes.func,

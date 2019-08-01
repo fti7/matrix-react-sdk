@@ -16,11 +16,12 @@ limitations under the License.
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 const MatrixClientPeg = require("../../../MatrixClientPeg");
 const sdk = require('../../../index');
 import { _t } from '../../../languageHandler';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'ChangeAvatar',
     propTypes: {
         initialAvatarUrl: PropTypes.string,

@@ -20,6 +20,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import {_t, _td} from '../../../languageHandler';
 import sdk from '../../../index';
 import Login from '../../../Login';
@@ -54,7 +55,7 @@ _td("General failure");
 /**
  * A wire component which glues together login UI components and Login logic
  */
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'Login',
 
     propTypes: {

@@ -20,12 +20,13 @@ import SettingsStore from "../../../settings/SettingsStore";
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 const sdk = require('../../../index');
 const dis = require('../../../dispatcher');
 import { _t } from '../../../languageHandler';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'MemberTile',
 
     propTypes: {

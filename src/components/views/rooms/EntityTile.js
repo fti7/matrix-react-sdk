@@ -19,6 +19,7 @@ limitations under the License.
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 const sdk = require('../../../index');
 import AccessibleButton from '../elements/AccessibleButton';
 import { _t } from '../../../languageHandler';
@@ -52,7 +53,7 @@ function presenceClassForMember(presenceState, lastActiveAgo, showPresence) {
     }
 }
 
-const EntityTile = React.createClass({
+const EntityTile = createReactClass({
     displayName: 'EntityTile',
 
     propTypes: {

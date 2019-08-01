@@ -17,12 +17,13 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { KeyCode } from '../../Keyboard';
 import dis from '../../dispatcher';
 import { throttle } from 'lodash';
 import AccessibleButton from '../../components/views/elements/AccessibleButton';
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'SearchBox',
 
     propTypes: {

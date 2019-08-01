@@ -16,6 +16,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { MatrixClient } from 'matrix-js-sdk';
 import sdk from '../../../index';
 import { _t } from '../../../languageHandler';
@@ -29,7 +30,7 @@ import { GroupMemberType } from '../../../groups';
  * to make it obvious what is going to happen.
  * Also tweaks the style for 'dangerous' actions (albeit only with colour)
  */
-export default React.createClass({
+export default createReactClass({
     displayName: 'ConfirmUserActionDialog',
     propTypes: {
         // matrix-js-sdk (room) member object. Supply either this or 'groupMember'

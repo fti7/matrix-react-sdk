@@ -21,6 +21,7 @@ import Promise from 'bluebird';
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import Matrix from "matrix-js-sdk";
 
 import Analytics from "../../Analytics";
@@ -106,7 +107,7 @@ const ONBOARDING_FLOW_STARTERS = [
     'view_create_group',
 ];
 
-export default React.createClass({
+export default createReactClass({
     // we export this so that the integration tests can use it :-S
     statics: {
         VIEWS: VIEWS,

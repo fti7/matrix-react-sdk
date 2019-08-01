@@ -18,6 +18,7 @@ limitations under the License.
 
 
 import React from 'react';
+import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import dis from '../../../dispatcher';
@@ -25,7 +26,7 @@ import classNames from 'classnames';
 
 const MIN_TOOLTIP_HEIGHT = 25;
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'Tooltip',
 
     propTypes: {

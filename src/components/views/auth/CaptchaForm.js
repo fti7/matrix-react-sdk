@@ -18,6 +18,7 @@ limitations under the License.
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
 
 const DIV_ID = 'mx_recaptcha';
@@ -25,7 +26,7 @@ const DIV_ID = 'mx_recaptcha';
 /**
  * A pure UI component which displays a captcha form.
  */
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'CaptchaForm',
 
     propTypes: {

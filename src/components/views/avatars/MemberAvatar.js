@@ -18,11 +18,12 @@ limitations under the License.
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 const Avatar = require('../../../Avatar');
 const sdk = require("../../../index");
 const dispatcher = require("../../../dispatcher");
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'MemberAvatar',
 
     propTypes: {

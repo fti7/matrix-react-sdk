@@ -18,14 +18,12 @@ limitations under the License.
 
 const React = require('react');
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 const Avatar = require("../../../Avatar");
-const MatrixClientPeg = require('../../../MatrixClientPeg');
 const sdk = require('../../../index');
-const dis = require('../../../dispatcher');
-const Modal = require("../../../Modal");
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'UserTile',
 
     propTypes: {

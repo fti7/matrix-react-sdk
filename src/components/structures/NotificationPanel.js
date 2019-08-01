@@ -17,13 +17,14 @@ limitations under the License.
 
 const React = require('react');
 import { _t } from '../../languageHandler';
+import createReactClass from 'create-react-class';
 const sdk = require('../../index');
 const MatrixClientPeg = require("../../MatrixClientPeg");
 
 /*
  * Component which shows the global notification list using a TimelinePanel
  */
-const NotificationPanel = React.createClass({
+const NotificationPanel = createReactClass({
     displayName: 'NotificationPanel',
 
     propTypes: {
