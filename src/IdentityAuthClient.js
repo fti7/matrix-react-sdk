@@ -14,7 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { SERVICE_TYPES } from 'matrix-js-sdk';
+
 import MatrixClientPeg from './MatrixClientPeg';
+import { Service, startTermsFlow, TermsNotSignedError } from './Terms';
 
 export default class IdentityAuthClient {
     constructor() {
@@ -40,32 +43,48 @@ export default class IdentityAuthClient {
 
         if (!token) {
             token = await this.registerForToken();
-            this.accessToken = token;
-            window.localStorage.setItem("mx_is_access_token", token);
+            if (token) {
+                this.accessToken = token;
+                window.localStorage.setItem("mx_is_access_token", token);
+            }
+            return token;
         }
 
         try {
             await this._checkToken(token);
         } catch (e) {
+            if (e instanceof TermsNotSignedError) {
+                // Retrying won't help this
+                throw e;
+            }
             // Retry in case token expired
             token = await this.registerForToken();
-            this.accessToken = token;
-            window.localStorage.setItem("mx_is_access_token", token);
+            if (token) {
+                this.accessToken = token;
+                window.localStorage.setItem("mx_is_access_token", token);
+            }
         }
 
         return token;
     }
 
-    _checkToken(token) {
-        // TODO: Test current API token via `/account` endpoint
+    async _checkToken(token) {
+        try {
+            await MatrixClientPeg.get().getIdentityAccount(token);
+        } catch (e) {
+            if (e.errcode === "M_TERMS_NOT_SIGNED") {
+                console.log("Identity Server requires new terms to be agreed to");
+                await startTermsFlow([new Service(
+                    SERVICE_TYPES.IS,
+                    MatrixClientPeg.get().idBaseUrl,
+                    token,
+                )]);
+                return;
+            }
+            throw e;
+        }
 
-        // At the moment, Sydent doesn't implement `/account`, so we can't use
-        // that yet. We could try a lookup for a null address perhaps...?
-        // Sydent doesn't currently expire tokens, but we should still be testing
-        // them in any case.
-        // See also https://github.com/vector-im/riot-web/issues/10452.
-
-        // In any case, we should ensure the token in `localStorage` is cleared
+        // We should ensure the token in `localStorage` is cleared
         // appropriately. We already clear storage on sign out, but we'll need
         // additional clearing when changing ISes in settings as part of future
         // privacy work.
@@ -79,14 +98,16 @@ export default class IdentityAuthClient {
                 await MatrixClientPeg.get().registerWithIdentityServer(hsOpenIdToken);
             await this._checkToken(identityAccessToken);
             return identityAccessToken;
-        } catch (err) {
-            if (err.cors === "rejected" || err.httpStatus === 404) {
+        } catch (e) {
+            if (e.cors === "rejected" || e.httpStatus === 404) {
                 // Assume IS only supports deprecated v1 API for now
                 // TODO: Remove this path once v2 is only supported version
                 // See https://github.com/vector-im/riot-web/issues/10443
                 console.warn("IS doesn't support v2 auth");
                 this.authEnabled = false;
+                return;
             }
+            throw e;
         }
     }
 }

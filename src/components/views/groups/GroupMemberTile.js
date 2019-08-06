@@ -1,6 +1,7 @@
 /*
 Copyright 2017 Vector Creations Ltd
 Copyright 2017 New Vector Ltd
+Copyright 2019 Michael Telatynski <7t3chguy@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,22 +19,25 @@ limitations under the License.
 import React from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
+import { MatrixClient } from 'matrix-js-sdk';
 import sdk from '../../../index';
 import dis from '../../../dispatcher';
 import { GroupMemberType } from '../../../groups';
-import withMatrixClient from '../../../wrappers/withMatrixClient';
 
-export default withMatrixClient(createReactClass({
+export default createReactClass({
     displayName: 'GroupMemberTile',
 
     propTypes: {
-        matrixClient: PropTypes.object,
         groupId: PropTypes.string.isRequired,
         member: GroupMemberType.isRequired,
     },
 
     getInitialState: function() {
         return {};
+    },
+
+    contextTypes: {
+        matrixClient: PropTypes.instanceOf(MatrixClient).isRequired,
     },
 
     onClick: function(e) {
@@ -49,7 +53,7 @@ export default withMatrixClient(createReactClass({
         const EntityTile = sdk.getComponent('rooms.EntityTile');
 
         const name = this.props.member.displayname || this.props.member.userId;
-        const avatarUrl = this.props.matrixClient.mxcUrlToHttp(
+        const avatarUrl = this.context.matrixClient.mxcUrlToHttp(
             this.props.member.avatarUrl,
             36, 36, 'crop',
         );
@@ -68,4 +72,4 @@ export default withMatrixClient(createReactClass({
             />
         );
     },
-}));
+});

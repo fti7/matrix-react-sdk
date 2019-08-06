@@ -15,10 +15,8 @@ limitations under the License.
 */
 
 
-'use strict';
-
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import Analytics from './Analytics';
