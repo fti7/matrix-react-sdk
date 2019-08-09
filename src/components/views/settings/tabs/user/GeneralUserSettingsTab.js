@@ -1,5 +1,6 @@
 /*
 Copyright 2019 New Vector Ltd
+Copyright 2019 The Matrix.org Foundation C.I.C.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,8 +18,6 @@ limitations under the License.
 import React from 'react';
 import {_t} from "../../../../../languageHandler";
 import ProfileSettings from "../../ProfileSettings";
-import EmailAddresses from "../../EmailAddresses";
-import PhoneNumbers from "../../PhoneNumbers";
 import Field from "../../../elements/Field";
 import * as languageHandler from "../../../../../languageHandler";
 import {SettingLevel} from "../../../../../settings/SettingsStore";
@@ -28,6 +27,7 @@ import AccessibleButton from "../../../elements/AccessibleButton";
 import DeactivateAccountDialog from "../../../dialogs/DeactivateAccountDialog";
 import PropTypes from "prop-types";
 const PlatformPeg = require("../../../../../PlatformPeg");
+const MatrixClientPeg = require("../../../../../MatrixClientPeg");
 const sdk = require('../../../../..');
 const Modal = require("../../../../../Modal");
 const dis = require("../../../../../dispatcher");
@@ -110,6 +110,9 @@ export default class GeneralUserSettingsTab extends React.Component {
 
     _renderAccountSection() {
         const ChangePassword = sdk.getComponent("views.settings.ChangePassword");
+        const EmailAddresses = sdk.getComponent("views.settings.account.EmailAddresses");
+        const PhoneNumbers = sdk.getComponent("views.settings.account.PhoneNumbers");
+
         const passwordChangeForm = (
             <ChangePassword
                 className="mx_GeneralUserSettingsTab_changePassword"
@@ -119,6 +122,14 @@ export default class GeneralUserSettingsTab extends React.Component {
                 onFinished={this._onPasswordChanged} />
         );
 
+        const threepidSection = MatrixClientPeg.get().getIdentityServerUrl() ? <div>
+            <span className="mx_SettingsTab_subheading">{_t("Email addresses")}</span>
+            <EmailAddresses />
+
+            <span className="mx_SettingsTab_subheading">{_t("Phone numbers")}</span>
+            <PhoneNumbers />
+        </div> : null;
+
         return (
             <div className="mx_SettingsTab_section mx_GeneralUserSettingsTab_accountSection">
                 <span className="mx_SettingsTab_subheading">{_t("Account")}</span>
@@ -126,12 +137,7 @@ export default class GeneralUserSettingsTab extends React.Component {
                     {_t("Set a new account password...")}
                 </p>
                 {passwordChangeForm}
-
-                <span className="mx_SettingsTab_subheading">{_t("Email addresses")}</span>
-                <EmailAddresses />
-
-                <span className="mx_SettingsTab_subheading">{_t("Phone numbers")}</span>
-                <PhoneNumbers />
+                {threepidSection}
             </div>
         );
     }
@@ -162,6 +168,21 @@ export default class GeneralUserSettingsTab extends React.Component {
         );
     }
 
+    _renderDiscoverySection() {
+        const EmailAddresses = sdk.getComponent("views.settings.discovery.EmailAddresses");
+        const PhoneNumbers = sdk.getComponent("views.settings.discovery.PhoneNumbers");
+
+        return (
+            <div className="mx_SettingsTab_section">
+                <span className="mx_SettingsTab_subheading">{_t("Email addresses")}</span>
+                <EmailAddresses />
+
+                <span className="mx_SettingsTab_subheading">{_t("Phone numbers")}</span>
+                <PhoneNumbers />
+            </div>
+        );
+    }
+
     _renderManagementSection() {
         // TODO: Improve warning text for account deactivation
         return (
@@ -185,6 +206,9 @@ export default class GeneralUserSettingsTab extends React.Component {
                 {this._renderAccountSection()}
                 {this._renderLanguageSection()}
                 {this._renderThemeSection()}
+                <div className="mx_SettingsTab_heading">{_t("Discovery")}</div>
+                {this._renderDiscoverySection()}
+                <div className="mx_SettingsTab_heading">{_t("Deactivate account")}</div>
                 {this._renderManagementSection()}
             </div>
         );

@@ -790,6 +790,7 @@ module.exports = createReactClass({
         let spinner;
 
         if (this.props.member.userId !== this.context.matrixClient.credentials.userId) {
+            // TODO: Immutable DMs replaces a lot of this
             const dmRoomMap = new DMRoomMap(this.context.matrixClient);
             // dmRooms will not include dmRooms that we have been invited into but did not join.
             // Because DMRoomMap runs off account_data[m.direct] which is only set on join of dm room.
@@ -831,7 +832,7 @@ module.exports = createReactClass({
                 mx_MemberInfo_createRoom_label: true,
                 mx_RoomTile_name: true,
             });
-            const startNewChat = <AccessibleButton
+            let startNewChat = <AccessibleButton
                 className="mx_MemberInfo_createRoom"
                 onClick={this.onNewDMClick}
             >
@@ -840,6 +841,8 @@ module.exports = createReactClass({
                 </div>
                 <div className={labelClasses}><i>{ _t("Start a chat") }</i></div>
             </AccessibleButton>;
+
+            if (tiles.length > 0) startNewChat = null; // Don't offer a button for a new chat if we have one.
 
             startChat = <div>
                 <h3>{ _t("Direct chats") }</h3>

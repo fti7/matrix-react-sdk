@@ -1,6 +1,5 @@
 /*
-Copyright 2019 New Vector Ltd
-Copyright 2019 The Matrix.org Foundation C.I.C.
+Copyright Michael Telatynski <7t3chguy@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,24 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.mx_ExistingEmailAddress {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
+.mx_SlashCommandHelpDialog .mx_SlashCommandHelpDialog_headerRow h2 {
+    margin-bottom: 2px;
 }
 
-.mx_ExistingEmailAddress_delete {
-    margin-right: 5px;
-    cursor: pointer;
-    vertical-align: middle;
-}
-
-.mx_ExistingEmailAddress_email,
-.mx_ExistingEmailAddress_promptText {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.mx_ExistingEmailAddress_confirmBtn {
-    margin-left: 5px;
+.mx_SlashCommandHelpDialog .mx_Dialog_content {
+    margin-top: 12px;
+    margin-bottom: 34px;
 }

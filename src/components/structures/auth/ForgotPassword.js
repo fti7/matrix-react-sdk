@@ -257,6 +257,22 @@ module.exports = createReactClass({
             </a>;
         }
 
+        if (!this.props.serverConfig.isUrl) {
+            return <div>
+                <h3>
+                    {yourMatrixAccountText}
+                    {editLink}
+                </h3>
+                {_t(
+                    "No identity server is configured: " +
+                    "add one in server settings to reset your password.",
+                )}
+                <a className="mx_AuthBody_changeFlow" onClick={this.onLoginClick} href="#">
+                    {_t('Sign in instead')}
+                </a>
+            </div>;
+        }
+
         return <div>
             {errorText}
             {serverDeadSection}

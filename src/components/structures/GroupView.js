@@ -344,7 +344,6 @@ const FeaturedUser = createReactClass({
         dis.dispatch({
             action: 'view_start_chat_or_reuse',
             user_id: this.props.summaryInfo.user_id,
-            go_home_on_cancel: false,
         });
     },
 

@@ -382,8 +382,8 @@ module.exports = createReactClass({
 
     render: function() {
         if (this.props.editState) {
-            const MessageEditor = sdk.getComponent('elements.MessageEditor');
-            return <MessageEditor editState={this.props.editState} className="mx_EventTile_content" />;
+            const EditMessageComposer = sdk.getComponent('rooms.EditMessageComposer');
+            return <EditMessageComposer editState={this.props.editState} className="mx_EventTile_content" />;
         }
         const mxEvent = this.props.mxEvent;
         const content = mxEvent.getContent();
