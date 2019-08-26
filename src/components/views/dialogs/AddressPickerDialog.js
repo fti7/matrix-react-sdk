@@ -20,6 +20,7 @@ limitations under the License.
 import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import { _t, _td } from '../../../languageHandler';
 import sdk from '../../../index';

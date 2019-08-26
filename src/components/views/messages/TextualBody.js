@@ -24,7 +24,6 @@ import highlight from 'highlight.js';
 import * as HtmlUtils from '../../../HtmlUtils';
 import {formatDate} from '../../../DateUtils';
 import sdk from '../../../index';
-import ScalarAuthClient from '../../../ScalarAuthClient';
 import Modal from '../../../Modal';
 import SdkConfig from '../../../SdkConfig';
 import dis from '../../../dispatcher';
@@ -34,6 +33,7 @@ import SettingsStore from "../../../settings/SettingsStore";
 import ReplyThread from "../elements/ReplyThread";
 import {host as matrixtoHost} from '../../../matrix-to';
 import {pillifyLinks} from '../../../utils/pillify';
+import {IntegrationManagers} from "../../../integrations/IntegrationManagers";
 
 module.exports = createReactClass({
     displayName: 'TextualBody',
@@ -317,12 +317,19 @@ module.exports = createReactClass({
         // which requires the user to click through and THEN we can open the link in a new tab because
         // the window.open command occurs in the same stack frame as the onClick callback.
 
+        const managers = IntegrationManagers.sharedInstance();
+        if (!managers.hasManager()) {
+            managers.openNoManagerDialog();
+            return;
+        }
+
         // Go fetch a scalar token
-        const scalarClient = new ScalarAuthClient();
+        const integrationManager = managers.getPrimaryManager();
+        const scalarClient = integrationManager.getScalarClient();
         scalarClient.connect().then(() => {
             const completeUrl = scalarClient.getStarterLink(starterLink);
             const QuestionDialog = sdk.getComponent("dialogs.QuestionDialog");
-            const integrationsUrl = SdkConfig.get().integrations_ui_url;
+            const integrationsUrl = integrationManager.uiUrl;
             Modal.createTrackedDialog('Add an integration', '', QuestionDialog, {
                 title: _t("Add an Integration"),
                 description:

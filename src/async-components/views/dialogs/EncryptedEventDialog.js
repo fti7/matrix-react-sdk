@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 const React = require("react");
+import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import { _t } from '../../../languageHandler';
