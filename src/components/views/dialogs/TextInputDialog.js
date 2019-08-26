@@ -17,7 +17,6 @@ limitations under the License.
 import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
-import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 
 export default createReactClass({

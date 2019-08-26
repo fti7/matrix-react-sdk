@@ -19,7 +19,6 @@ import Promise from 'bluebird';
 import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
-import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import MatrixClientPeg from '../../../MatrixClientPeg';
 import classnames from 'classnames';

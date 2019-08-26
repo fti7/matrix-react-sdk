@@ -18,7 +18,6 @@ limitations under the License.
 import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
-import createReactClass from 'create-react-class';
 import sdk from '../../../index';
 import Email from '../../../email';
 import AddThreepid from '../../../AddThreepid';
